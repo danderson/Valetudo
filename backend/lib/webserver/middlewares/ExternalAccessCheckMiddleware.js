@@ -48,7 +48,7 @@ function isAllowed(ip) {
              req.url and such are strings. req.ip is a getter property that calls req.remoteAddress that is a getter
              that does a network socket call, so its value depends on the state of the socket
          */
-        allowed = ip !== undefined && (isInSubnet.isPrivate(ip) || isInSubnet.isLocalhost(ip) || isLocalIPv6Subnet(ip));
+        allowed = ip !== undefined && isInSubnet.isLocalhost(ip);
     } catch (e) {
         Logger.warn("Error during external access check", e);
     }
